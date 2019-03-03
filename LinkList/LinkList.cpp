@@ -55,6 +55,7 @@ int ListLength(LinkList *L)
 	if(L->next != NULL)
 	{
 		cnt++;
+		L = L->next;
 	}
 	return cnt;
 }
