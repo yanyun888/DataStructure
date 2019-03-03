@@ -134,7 +134,8 @@ bool InsertList(DLinkList *&L,int i,ElemType e)
 		DLinkList *s = (DLinkList *)malloc(sizeof(DLinkList));
 		s->data = e;
 		s->next = p->next;
-		p->next->prior = s;
+		if(p->next != NULL)
+			p->next->prior = s;
 		s->prior = p;
 		p->next = s;
 		return true;
@@ -155,7 +156,11 @@ bool DeleteList(DLinkList *&L,int i,ElemType &e)
 	else
 	{
 		q = p->next;
+		if(q == NULL)
+			return false;
 		p->next = q->next;
+		if(q->next != NULL)
+			q->next->prior = p;
 		free(q); 
 		return true;
 	}
