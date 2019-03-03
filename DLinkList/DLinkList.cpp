@@ -69,7 +69,7 @@ int ListLength(DLinkList *L)
 {
 	int cnt = 0;
 	DLinkList *p = L;
-	while(p != NULL)
+	while(p->next != NULL)
 	{
 		cnt++;
 		p = p->next;
